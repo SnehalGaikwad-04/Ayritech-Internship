@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Editor</title>
+    <link rel="stylesheet" href="css/editor.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Certificate Editor</h1>
+      <div class="header-buttons">
+        <button onclick="saveTableModal()">Save</button>
+        <button onclick="downloadCertificate()">Download</button>
+        <button onclick="downloadModal()">Download</button>
+      </div>
+    </header>
+
+    <div class="editor-container">
+      <!-- Sidebar for Editing Options -->
+      <aside class="sidebar">
+        <h2>Customize</h2>
+
+        <label for="certificateMode"><b>Certificate Mode:</b></label>
+        <select id="certificateMode">
+          <option value="landscape">Landscape</option>
+          <option value="portrait">Portrait</option>
+        </select>
+
+        <div class="color-input-group">
+          <label>Background Color:</label>
+          <div class="color-container">
+            <input type="color" id="bgColorPicker" />
+            <div id="bgColorPreview" class="color-preview"></div>
+          </div>
+        </div>
+
+        <label>Text:</label>
+        <input type="text" id="textInput" placeholder="Enter text" />
+
+        <label>Font Size:</label>
+        <input type="number" id="fontSize" value="30" min="8" max="120" />
+
+        <label>Font:</label>
+        <select id="fontSelector">
+          <option value="Arial">Arial</option>
+          <option value="Poppins">Poppins</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Verdana">Verdana</option>
+        </select>
+
+        <div class="color-input-group">
+          <label>Text Color:</label>
+          <div class="color-container">
+            <input type="color" id="textColorPicker" value="#000000" />
+            <div id="textColorPreview" class="color-preview"></div>
+          </div>
+        </div>
+
+        <button id="addText">Add Text</button>
+
+        <label>Upload Image:</label>
+        <input type="file" id="imageUpload" accept="image/*" />
+
+        <!-- Shapes Sidebar -->
+        <h2>Shapes</h2>
+        <div class="shapes-container">
+          <div class="shape" data-shape="rect">
+            <svg width="40" height="40">
+              <rect width="40" height="40" fill="#FF5733" />
+            </svg>
+          </div>
+          <div class="shape" data-shape="circle">
+            <svg width="40" height="40">
+              <circle cx="20" cy="20" r="20" fill="#33FF57" />
+            </svg>
+          </div>
+          <div class="shape" data-shape="triangle">
+            <svg width="40" height="40">
+              <polygon points="20,0 40,40 0,40" fill="#3357FF" />
+            </svg>
+          </div>
+          <div class="shape" data-shape="line">
+            <svg width="40" height="40">
+              <line
+                x1="0"
+                y1="20"
+                x2="40"
+                y2="20"
+                stroke="#FF5733"
+                stroke-width="4"
+              />
+            </svg>
+          </div>
+          <div class="shape" data-shape="ellipse">
+            <svg width="40" height="40">
+              <ellipse cx="20" cy="20" rx="20" ry="15" fill="#FF5733" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Shape Color Picker -->
+        <div class="color-input-group">
+          <label>Shape Color:</label>
+          <div class="color-container">
+            <input type="color" id="shapeColorPicker" value="#FF5733" />
+            <div id="shapeColorPreview" class="color-preview"></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Certificate Editing Area -->
+      <div id="certificate-area">
+        <div id="canvas-container">
+          <canvas id="certificateCanvas"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Save as template/design -->
+    <div id="tableModal" class="modal-overlay" style="display: none">
+      <div class="modal">
+        <h2>Save As</h2>
+        <p>Select if you want to save it as template or design</p>
+        <input
+          type="text"
+          id="certNameInput"
+          placeholder="Certificate Name"
+          class="modal-input"
+        />
+        <div class="modal-buttons">
+          <button id="templateTable" class="modal-button temp">Template</button>
+          <button id="designTable" class="modal-button des">Design</button>
+          <button id="cancelSave" class="modal-button cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Save Template Modal -->
+    <!-- <div id="saveModal" class="modal-overlay" style="display: none">
+      <div class="modal">
+        <h2>Save Template</h2>
+        <p>Enter a name for your template:</p>
+        <input
+          type="text"
+          id="templateNameInput"
+          placeholder="Template Name"
+          class="modal-input"
+        />
+        <div class="modal-buttons">
+          <button id="cancelSave" class="modal-button cancel">Cancel</button>
+          <button id="confirmSave" class="modal-button confirm">Save</button>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Download Modal -->
+    <div id="downloadModal" class="modal-overlay" style="display: none">
+      <div class="modal">
+        <h2>Download Certificate</h2>
+        <p>Choose a format:</p>
+        <div class="modal-buttons">
+          <button id="downloadPdf" class="modal-button confirm">PDF</button>
+          <button id="downloadPng" class="modal-button confirm">PNG</button>
+          <button id="downloadJpg" class="modal-button confirm">JPG</button>
+          <button id="cancelDownload" class="modal-button cancel">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+    <script src="js/editor.js"></script>
+  </body>
+</html>

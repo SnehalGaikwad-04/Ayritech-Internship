@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212; /* Dark background */
+  color: white; /* White text */
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  height: 850px;
+  background-color: #1e1e1e; /* Dark sidebar */
+  padding: 20px;
+  position: fixed;
+}
+
+.sidebar h2 {
+  color: #a7acec; /* Orange heading */
+  margin-bottom: 20px;
+}
+
+.sidebar-button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #a7acec;
+  border: 1px solid #a7acec;
+  color: black; /* Orange text */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar-button:hover {
+  background-color: transparent; /* Orange background on hover */
+  color: white; /* Black text on hover */
+}
+
+h1 {
+  margin-bottom: 20px;
+}

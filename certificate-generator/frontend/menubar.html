@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menubar</title>
+    <link rel="stylesheet" href="./css/menubar.css" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <h2>&nbsp;&nbsp;&nbsp;AYRITECH</h2>
+        <button class="sidebar-button" onclick="createNewDesign()">
+          Create a Design
+        </button>
+        <button class="sidebar-button" onclick="showDesigns()">Recents</button>
+        <button class="sidebar-button" onclick="showTemplates()">
+          Templates
+        </button>
+        <button class="sidebar-button" onclick="showTrash()">Trash</button>
+        <button class="sidebar-button" onclick="showSettings()">
+          Settings
+        </button>
+      </aside>
+    </div>
+
+    <!-- Include Fabric.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
